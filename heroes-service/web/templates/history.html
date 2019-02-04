@@ -1,6 +1,6 @@
-{{define "title"}}Create Record{{end}}
+{{define "title3"}}Create Record{{end}}
 
-{{define "body"}}
+{{define "body3"}}
 <h2>History</h2>
 <br><br>
 <div class="row">
@@ -35,15 +35,30 @@
     <table class="table table-striped" style="margin-top:5px;">
       <thead>
         <tr>
-          <th scope="col">Value</th>
+          <th scope="col">IMEI#</th>
+          <th scope="col">Specifications</th>
+	<th scope="col">Producers name</th>
+	<th scope="col">Manufacturers name</th>
+          <th scope="col">Shelf LIfe</th>
+          <th scope="col">Manufacturing Site</th>
+          <th scope="col">Final Assembly Date</th>
+          <th scope="col">Packaging Date</th>
+          <th scope="col">Price</th>
         </tr>
       </thead>
       <tbody>
         <tr>
           
-          <td>{{$BlockResponse.Value.ItemName}}</td>
-	<td>{{$BlockResponse.Value.NameOfPerson}}</td>
-	<td>{{$BlockResponse.Value.SellingValue}}</td> 
+          <td>{{$BlockResponse.Value.IMEINo}}</td>
+	<td>{{$BlockResponse.Value.Specifications}}</td>
+	<td>{{$BlockResponse.Value.ProducerName}}</td>
+	<td>{{$BlockResponse.Value.ManufacturerName}}</td>
+	<td>{{$BlockResponse.Value.ShelfLife}}</td> 
+	 <td>{{$BlockResponse.Value.ManufacturingSite}}</td>
+	<td>{{$BlockResponse.Value.FinalAssemblyDate}}</td>
+	<td>{{$BlockResponse.Value.PackagingDate}}</td> 
+
+	<td>{{$BlockResponse.Value.Price}}</td>
         </tr>
       </tbody>
     </table>

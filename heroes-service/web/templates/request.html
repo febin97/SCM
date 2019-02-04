@@ -1,6 +1,6 @@
-{{define "title"}}Request{{end}}
+{{define "title2"}}Request{{end}}
 
-{{define "body"}}
+{{define "body2"}}
 <h2>Create or Update</h2>
 <br><br>
 {{ if .Response }}
@@ -18,13 +18,27 @@
 <form class="form-inline" action="request.html" method="post">
     <div class="form-group">
         <label for="helloValue">Key</label>
-        <input type="text" class="form-control" id="ItemKey" placeholder="Item Key" name="key">
-        <label for="value">Item Name</label>
-        <input type="text" class="form-control" id="value" placeholder="item name" name="itemname">
-	<label for="value">Name Of Person</label>
-        <input type="text" class="form-control" id="value" placeholder="Name of Person" name="nameofperson">
-	<label for="value">Selling VAlue</label>
-        <input type="text" class="form-control" id="value" placeholder="selling value" name="sellingvalue">
+        <input type="text" class="form-control" id="ItemKey" placeholder="Item Key" name="key"></div>  <br>
+
+        <label for="value">IMEINo</label>
+        <input type="text" class="form-control" id="IMEINo" placeholder="imei no" name="imeino" value="23tgfghuhfjg"><br>
+	<label for="value">Specifications</label>
+        <input type="text" class="form-control" id="specifications" placeholder="Specifications" name="specifications"><br>
+	<label for="value">ProducerName</label>
+
+        <input type="text" class="form-control" id="producername" placeholder="producername" name="producername"><br>
+	<label for="value">Manufacturer Name</label>
+        <input type="text" class="form-control" id="manufacturername" placeholder="Manufacturer Name" name="manufacturername"><br>
+	<label for="value">Shelf Life</label>
+        <input type="text" class="form-control" id="shelflife" placeholder="shelflife" name="shelflife"><br>
+	<label for="value">Manufacturing Site</label>
+        <input type="text" class="form-control" id="manufacturingsite" placeholder="manufacturingsite" name="manufacturingsite"><br>
+    <label for="helloValue">Final Assembly Date</label>
+        <input type="text" class="form-control" id="finalassemblydate" placeholder="finalassemblydate" name="finalassemblydate"><br>
+    <label for="helloValue">Packaging Date</label>
+        <input type="text" class="form-control" id="packagingdate" placeholder="packagingdate" name="packagingdate"><br>
+    <label for="helloValue">Price</label>
+        <input type="text" class="form-control" id="price" placeholder="price" name="price"><br>
     </div>
     <input type="hidden" name="submitted" value="true">
     <button type="submit" class="btn btn-default">Send the request</button>
@@ -32,3 +46,5 @@
 
 
 {{end}}
+
+

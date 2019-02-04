@@ -16,9 +16,15 @@ type HeroesServiceChaincode struct {
 
 type Test struct {
 
-	ItemName   string `json:"itemname"`
-	NameOfPerson string `json:"nameofperson"`
-	SellingValue string `json:"sellingvalue"` 
+	IMEINo   string `json:"imeino"`
+	Specifications string `json:"specifications"`
+	ProducerName string `json:"producername"`
+	ManufacturerName string `json:"manufacturername"`
+	ShelfLife string `json:"shelflife"`
+	ManufacturingSite string`json:"manufacturingsite"`
+	FinalAssemblyDate string `json:"finalassemblydate"`
+	PackagingDate string `json:"packagingdate"`
+	Price string `json:"price"`
 }
 
 
@@ -38,15 +44,16 @@ func (t *HeroesServiceChaincode) Init(stub shim.ChaincodeStubInterface) pb.Respo
 	}
 
 	test := []Test{
-		Test{ItemName:"apple",NameOfPerson:"ABY",SellingValue:"120"},
-		Test{ItemName:"orange",NameOfPerson:"ABU",SellingValue:"1"},
-		Test{ItemName:"app",NameOfPerson:"AtY",SellingValue:"190"},
-	}
+		Test{IMEINo:"mlz12345678",Specifications:"ModelName:Lenovo-k,Processor:Snapdragon-630, Dimensions:120 ,Battery: 3200, DisplayUnit:1920*720,CameraModule:111,Memory:16Gb",ProducerName:"qwert",ManufacturerName:"abc",ShelfLife:"1 month",ManufacturingSite:"Hyderabad",FinalAssemblyDate:"02/01/2019",PackagingDate:"02/01/2019",Price:"Rs.8000"},
+
+		Test{IMEINo:"mle17345678",Specifications:"*ModelName:Lenovo-A6000,Processor:Snapdragon-580,Dimensions:120,Battery:2300,DisplayUnit:1280*720,CameraModule:111,Memory:8Gb",ProducerName:"qwert",ManufacturerName:"abc",ShelfLife:"1 month",ManufacturingSite:"Delhi",FinalAssemblyDate:"02/01/2019",PackagingDate:"02/01/2019",Price:"Rs.7000"},
+
+		Test{IMEINo:"mlz42348678",Specifications:"ModelName:Moto G4,Processor:Snapdragon-640,Dimensions:120,Battery:3500,DisplayUnit:1920*720,CameraModule:111,Memory:16Gb",ProducerName:"qwert",ManufacturerName:"abc",ShelfLife:"1 month",ManufacturingSite:"Hyderabad",FinalAssemblyDate:"04/01/2019",PackagingDate:"05/01/2019",Price:"Rs.8500"}}
 	i := 0
 	for i < len(test) {
 		fmt.Println("i is ", i)
 		testAsBytes, _ := json.Marshal(test[i])
-		stub.PutState("Item"+strconv.Itoa(i),[]byte{test[i]})
+		stub.PutState("Item"+strconv.Itoa(i),testAsBytes)//[]byte{test[i]})
 		fmt.Println("Added", test[i])
 		i = i + 1
 	}
@@ -162,8 +169,9 @@ func (t *HeroesServiceChaincode) invoke(stub shim.ChaincodeStubInterface, args [
 		// Write the new value in the ledger
 		var newProduct Test
 		//newProduct= []byte{args[2]}
-	    json.Unmarshal([]bytes(args[2]), &newProduct)
-		var test1 = Test{ItemName:newProduct.ItemName,NameOfPerson:newProduct.NameOfPerson,SellingValue:newProduct.SellingValue}
+	    json.Unmarshal([]byte(args[2]), &newProduct)
+		fmt.Printf("%s",newProduct.Specifications)
+		var test = Test{IMEINo:newProduct.IMEINo,Specifications:newProduct.Specifications,ProducerName:newProduct.ProducerName,ManufacturerName:newProduct.ManufacturerName,ManufacturingSite:newProduct.ManufacturingSite,FinalAssemblyDate:newProduct.FinalAssemblyDate,PackagingDate:newProduct.PackagingDate,Price:newProduct.Price}
 		testAsBytes, _ := json.Marshal(test)
 		err:=stub.PutState(args[1],testAsBytes)
 		err = stub.SetEvent("eventUpdateRecords", []byte{})

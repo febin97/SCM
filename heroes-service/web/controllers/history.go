@@ -13,10 +13,16 @@ func (app *Application) HistoryHandler(w http.ResponseWriter, r *http.Request) {
 	}
 
 	type Test struct {
-		ItemName   string `json:"itemname"`
-	NameOfPerson string `json:"nameofperson"`
-	SellingValue string `json:"sellingvalue"`
 		
+	IMEINo string `json:"imeino"`
+	Specifications string `json:"specifications"`
+	ProducerName string `json:"producername"`
+	ManufacturerName string `json:"manufacturername"`
+	ShelfLife string `json:"shelflife"`
+	ManufacturingSite string `json:"manufacturingsite"`
+	FinalAssemblyDate string `json:"finalassemblydate"`
+	PackagingDate string `json:"packagingdate"`
+	Price string `json:"price"`
 	}
 
 	type Data struct {
@@ -58,5 +64,5 @@ func (app *Application) HistoryHandler(w http.ResponseWriter, r *http.Request) {
 		fmt.Println(blockHistory)
 	}
 	
-	renderTemplate(w, r, "history.html", returnData)
+	renderTemplate3(w, r, "history.html", returnData)
 }

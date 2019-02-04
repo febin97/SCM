@@ -15,9 +15,21 @@ func (app *Application) HomeHandler(w http.ResponseWriter, r *http.Request) {
 	type HelloData struct {
 		Key    string `json:"key"`
 		Record struct{
-			ItemName   string `json:"itemname"`
-			NameOfPerson string `json:"nameofperson"`
-			SellingValue string `json:"Sellingvalue"`
+			IMEINo   string `json:"imeino"`
+	/*Processor string `json:"processor"`
+	Dimensions string `json:"dimensions"`
+	Battery string `json:"battery"`
+	DisplayUnit string `json:"displayunit"`
+	CameraModule string `json:"cameramodule"` 
+	Memory string `json:"memory"`*/
+	Specifications string `json:"specifications"`
+	ProducerName string `json:"producername"`
+	ManufacturerName string `json:"manufacturername"`
+	ShelfLife string `json:"shelflife"`
+	ManufacturingSite string`json:"manufacturingsite"`
+	FinalAssemblyDate string `json:"finalassemblydate"`
+	PackagingDate string `json:"packagingdate"`
+	Price string `json:"price"`
 	}
    }
 	var data []HelloData
@@ -30,5 +42,5 @@ func (app *Application) HomeHandler(w http.ResponseWriter, r *http.Request) {
 		ResponseData: data,
 	}
 
-	renderTemplate(w, r, "home.html", returnData)
+	renderTemplate1(w, r, "home.html", returnData)
 }

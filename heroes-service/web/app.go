@@ -9,14 +9,17 @@ import (
 func Serve(app *controllers.Application) {
 	fs := http.FileServer(http.Dir("web/assets"))
 	http.Handle("/assets/", http.StripPrefix("/assets/", fs))
-
+	http.HandleFunc("/login.html", app.LoginPageHandler)
+	http.HandleFunc("/internal.html",app.LoginFunctionHandler)
 	http.HandleFunc("/home.html", app.HomeHandler)
 	http.HandleFunc("/request.html", app.RequestHandler)
     http.HandleFunc("/history.html", app.HistoryHandler)
-	http.HandleFunc("/", func(w http.ResponseWriter, r *http.Request) {
-		http.Redirect(w, r, "/home.html", http.StatusTemporaryRedirect)
-	})
-
-	fmt.Println("Listening (http://localhost:3000/) ...")
-	http.ListenAndServe(":3000", nil)
+	//http.HandleFunc("/", func(w http.ResponseWriter, r *http.Request) {
+		//http.Redirect(w, r, "/login.html", http.StatusTemporaryRedirect)
+		//renderTemplate(w, r, "home.html")
+	//})
+	
+	http.HandleFunc("/",app.LoginPageHandler)
+	fmt.Println("Listening (http://localhost:4000/) ...")
+	http.ListenAndServe(":4000", nil)
 }
