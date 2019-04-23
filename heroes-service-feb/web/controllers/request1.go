@@ -4,25 +4,25 @@ import (
 	"net/http"
 	"encoding/json"
 )
-type Data struct {
-	IMEINo   string `json:"imeino"`
+//type Data struct {
+	//IMEINo   string `json:"imeino"`
 	/*Processor string `json:"processor"`
 	Dimensions string `json:"dimensions"`
 	Battery string `json:"battery"`
 	DisplayUnit string `json:"displayunit"`
 	CameraModule string `json:"cameramodule"` 
 	Memory string `json:"memory"`*/
-	Specifications string `json:"specifications"`
-	ProducerName string `json:"producername"`
-	ManufacturerName string `json:"manufacturername"`
-	ShelfLife string `json:"shelflife"`
-	ManufacturingSite string`json:"manufacturingsite"`
-	FinalAssemblyDate string `json:"finalassemblydate"`
-	PackagingDate string `json:"packagingdate"`
-	Price string `json:"price"`
-}
+	//Specifications string `json:"specifications"`
+	//ProducerName string `json:"producername"`
+	//ManufacturerName string `json:"manufacturername"`
+	//ShelfLife string `json:"shelflife"`
+	//ManufacturingSite string`json:"manufacturingsite"`
+	//FinalAssemblyDate string `json:"finalassemblydate"`
+	//PackagingDate string `json:"packagingdate"`
+	//Price string `json:"price"`
+//}
 
-func (app *Application) RequestHandler(w http.ResponseWriter, r *http.Request) {
+func (app *Application) RequestHandler1(w http.ResponseWriter, r *http.Request) {
 	data := &struct {
 		TransactionId string
 		Success       bool
@@ -53,5 +53,7 @@ func (app *Application) RequestHandler(w http.ResponseWriter, r *http.Request) {
 		data.Success = true
 		data.Response = true
 	}
-	renderTemplate2(w, r, "request.html", data)
+	renderTemplate1(w, r, "request1.html", data)
 }
+
+

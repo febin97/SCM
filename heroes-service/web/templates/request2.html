@@ -1,0 +1,86 @@
+{{define "title2"}}Create Record{{end}}
+
+{{define "body2"}}
+<h2>Request</h2>
+<br><br>
+<div class="row">
+  <div class="col-md-6 offset-md-3">
+    <form action="request2.html" method="post">
+      <div class="row">
+        <div class="col-md-6">
+          <div class="form-group">
+            <select class="form-control rect-input-form" id="KeySearch" name="KeySearch" placeholder="Key">
+              <option>Select a Key to Update</option>
+              {{range $i, $BlockResponse := .ResponseData}}
+                <option>{{$BlockResponse.Key}}</option>
+              {{end}}
+            </select>
+          </div>
+        </div>
+        <div class="col-md-6">
+          <div class="form-group text-center">
+            <input type="hidden" name="requested" value="{{.TransactionRequested}}">
+            <button type="submit" class="btn btn-default text-center">Get Details</button>
+          </div>
+        </div>
+      </div>
+    </form>
+  </div>
+</div>
+{{ if eq .TransactionRequested "true"}}
+<div class="row">
+  <div class="col-md-6 offset-md-3">
+    {{$BlockResponse := .RecordHistory}}
+    <p>TXN ID: <strong>{{$BlockResponse.TxId}}</strong> Timestamp: <strong>{{$BlockResponse.Timestamp}}</strong></p>
+    <table class="table table-striped" style="margin-top:5px;">
+      <thead>
+        <tr>
+	  <th scope="col">Key</th>
+          <th scope="col">IMEI#</th>
+          <th scope="col">Specifications</th>
+	<th scope="col">Producers name</th>
+          <th scope="col">Manufacturing Site</th>
+          <th scope="col">Final Assembly Date</th>
+          
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>{{$BlockResponse.Value.Key}}</td>
+          <td>{{$BlockResponse.Value.IMEINo}}</td>
+	<td>{{$BlockResponse.Value.Specifications}}</td>
+	<td>{{$BlockResponse.Value.ProducerName}}</td>
+	 <td>{{$BlockResponse.Value.ManufacturingSite}}</td>
+	<td>{{$BlockResponse.Value.FinalAssemblyDate}}</td>
+        </tr>
+      </tbody>
+    </table>
+    {{end}}
+
+
+<form class="form-inline" action="request2keng.html" method="post">
+    <div class="req">
+        
+
+       
+	<label for="value">Retailer Name</label>
+        <input type="text" class="form-control" id="manufacturername" placeholder="Manufacturer Name" name="manufacturername"><br>
+	
+    <label for="helloValue">Packaging Date</label>
+        <input type="text" class="form-control" id="packagingdate" placeholder="packagingdate" name="packagingdate"><br>
+    <label for="helloValue">Price</label>
+        <input type="text" class="form-control" id="price" placeholder="price" name="price"><br>
+    </div></br>
+    <input type="hidden" name="submitted" value="true">
+    <button type="submit" class="btn btn-default">Send the request</button>
+</form>
+
+
+  </div>
+</div>
+{{end}}
+
+
+
+
+

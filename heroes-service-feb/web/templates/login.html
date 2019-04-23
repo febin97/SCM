@@ -1,0 +1,56 @@
+{{define "title"}}Login{{end}}
+
+{{define "body"}}   
+
+<!DOCTYPE html>
+<head>
+</head>
+
+<body>
+
+<br>
+        <div class="test">
+           
+                    <h1 class="text-center" style="font-family: 'Times New Roman', sans-serif"><strong>Supply Chain Management System</strong></h1>
+    	
+<input type="checkbox" id="form-switch">          
+<form id ="login-form" method="post" action="/internal.html">  
+         
+<p><input type="text" placeholder="Username" name="username" required autocomplete="off"></p>
+<p><input type="password" placeholder="**********"  name="password" required autocomplete="off"></p>
+<input type="radio" name="type" value="manufacturer">Manufacturer<br>
+<input type="radio" name="type" value="distributor" checked>Distributor<br>
+<input type="radio" name="type" value="consumer"> Consumer<br>  
+<p><input type="submit" class="btn btn-success" value="LOGIN"  name ="login">
+<label for="form-switch">Sign Up</label>
+</p>
+</form>
+
+ <br/>
+	
+
+<form id="signup-form"method="post" action="/register.html">
+<p><input type="text" placeholder="Enter Username"  name="username" required></p>
+
+<p><input type="email" placeholder="Enter EmailId"  name="emailid" required></p>
+
+
+ 
+<p><input type="password" placeholder="Enter Contact Number"  name="contactno" required></p>
+<p><input type="password" placeholder="Enter Password"  name="password1" required></p>
+<p><input type="password" placeholder="Confirm Password"  name="password2" required></p>
+<input type="radio" name="type" value="manufacturer">Manufacturer
+<input type="radio" name="type" value="distributor" checked>Distributor
+<input type="radio" name="type" value="consumer"> Consumer<br> 
+<p><input type="submit" class="btn btn-info" value="SIGNUP"  name ="signup">
+<label for="form-switch">Login Now..</label>
+</form>           
+            
+            
+                                                     
+                     
+        </div>
+
+    </body>
+</html>
+{{end}}

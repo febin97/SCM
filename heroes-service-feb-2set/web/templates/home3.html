@@ -1,0 +1,52 @@
+{{define "title3"}}Home{{end}}
+
+{{define "body3"}}
+<div class="container">
+
+</div>
+<h2>Home</h2>
+<br>
+
+<table class="table table-striped">
+  <thead>
+    <tr>
+<th scope="col">Key</th>
+ <th scope="col">IMEI#</th>
+          <!--<th scope="col">Specifications</th>-->
+	  
+	<th scope="col">Specifications</th>
+	<th scope="col">Manufacturer name</th>
+	<th scope="col">Retailer name</th>
+          <th scope="col">Shelf Life</th>
+          <th scope="col">Manufacturing Site</th>
+          <th scope="col">Final Assembly Date</th>
+          <th scope="col">Packaging Date</th>
+          <th scope="col">Price</th>
+    </tr>
+  </thead>
+  <tbody>
+    {{range $i, $BlockResponse := .ResponseData}}
+    <tr>
+     
+    
+    	  <td>{{$BlockResponse.Key}}</td>
+          <td>{{$BlockResponse.Record.IMEINo}}</td>
+	<td>{{$BlockResponse.Record.Specifications}}</td> 
+	
+	
+	<td>{{$BlockResponse.Record.ProducerName}}</td> 
+	<td>{{$BlockResponse.Record.ManufacturerName}}</td>
+	<td>{{$BlockResponse.Record.ShelfLife}}</td>  
+	 <td>{{$BlockResponse.Record.ManufacturingSite}}</td>
+	<td>{{$BlockResponse.Record.FinalAssemblyDate}}</td>
+	<td>{{$BlockResponse.Record.PackagingDate}}</td> 
+
+	<td>{{$BlockResponse.Record.Price}}</td>
+    </tr>
+    {{end}}
+  </tbody>
+</table>
+
+{{end}}
+
+

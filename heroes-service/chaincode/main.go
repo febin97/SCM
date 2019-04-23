@@ -20,7 +20,6 @@ type Test struct {
 	Specifications string `json:"specifications"`
 	ProducerName string `json:"producername"`
 	ManufacturerName string `json:"manufacturername"`
-	ShelfLife string `json:"shelflife"`
 	ManufacturingSite string`json:"manufacturingsite"`
 	FinalAssemblyDate string `json:"finalassemblydate"`
 	PackagingDate string `json:"packagingdate"`
@@ -44,11 +43,11 @@ func (t *HeroesServiceChaincode) Init(stub shim.ChaincodeStubInterface) pb.Respo
 	}
 
 	test := []Test{
-		Test{IMEINo:"mlz12345678",Specifications:"ModelName:Lenovo-k,Processor:Snapdragon-630, Dimensions:120 ,Battery: 3200, DisplayUnit:1920*720,CameraModule:111,Memory:16Gb",ProducerName:"qwert",ManufacturerName:"abc",ShelfLife:"1 month",ManufacturingSite:"Hyderabad",FinalAssemblyDate:"02/01/2019",PackagingDate:"02/01/2019",Price:"Rs.8000"},
+		Test{IMEINo:"mlz12345678",Specifications:"ModelName:Lenovo K3 ,Processor:Snapdragon-630,Battery: 3200, DisplayUnit:1920*720,Memory:16Gb",ProducerName:"Saleel",ManufacturerName:"Shilu",ManufacturingSite:"Hyderabad",FinalAssemblyDate:"02-01-2019",PackagingDate:"09/01/2019",Price:"Rs.8000"},
 
-		Test{IMEINo:"mle17345678",Specifications:"*ModelName:Lenovo-A6000,Processor:Snapdragon-580,Dimensions:120,Battery:2300,DisplayUnit:1280*720,CameraModule:111,Memory:8Gb",ProducerName:"qwert",ManufacturerName:"abc",ShelfLife:"1 month",ManufacturingSite:"Delhi",FinalAssemblyDate:"02/01/2019",PackagingDate:"02/01/2019",Price:"Rs.7000"},
+		Test{IMEINo:"mle17345678",Specifications:"ModelName:MotoG5s,Processor:Snapdragon-580,Battery:2300,DisplayUnit:1280*720,Memory:8Gb",ProducerName:"Saleel",ManufacturerName:"Sooraj",ManufacturingSite:"Bangalore",FinalAssemblyDate:"02/01/2019",PackagingDate:"08/01/2019",Price:"Rs.9000"},
 
-		Test{IMEINo:"mlz42348678",Specifications:"ModelName:Moto G4,Processor:Snapdragon-640,Dimensions:120,Battery:3500,DisplayUnit:1920*720,CameraModule:111,Memory:16Gb",ProducerName:"qwert",ManufacturerName:"abc",ShelfLife:"1 month",ManufacturingSite:"Hyderabad",FinalAssemblyDate:"04/01/2019",PackagingDate:"05/01/2019",Price:"Rs.8500"}}
+		Test{IMEINo:"mlz23451235",Specifications:"ModelName: iPhone X,Processor:A11, Battery:3500,DisplayUnit:1920*720,Memory:64Gb",ProducerName:"Aby",ManufacturerName:"Shilu",ManufacturingSite:"Delhi",FinalAssemblyDate:"04/01/2019",PackagingDate:"07/01/2019",Price:"Rs.50000"}}
 	i := 0
 	for i < len(test) {
 		fmt.Println("i is ", i)

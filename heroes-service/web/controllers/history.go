@@ -18,7 +18,6 @@ func (app *Application) HistoryHandler(w http.ResponseWriter, r *http.Request) {
 	Specifications string `json:"specifications"`
 	ProducerName string `json:"producername"`
 	ManufacturerName string `json:"manufacturername"`
-	ShelfLife string `json:"shelflife"`
 	ManufacturingSite string `json:"manufacturingsite"`
 	FinalAssemblyDate string `json:"finalassemblydate"`
 	PackagingDate string `json:"packagingdate"`
